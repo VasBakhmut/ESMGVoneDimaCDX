@@ -1,0 +1,7 @@
+import Link from "next/link";
+import { Arrow, Phone } from "./icons";
+import { business, services } from "@/data/site";
+export function Eyebrow({ children }: { children: React.ReactNode }) { return <p className="eyebrow">{children}</p> }
+export function ServiceGrid({ limit }: { limit?: number }) { return <div className="service-grid">{services.slice(0,limit).map((s,i) => <article className="service-card" key={s.slug}><span className="card-index">{String(i+1).padStart(2,"0")}</span><h3>{s.title}</h3><p>{s.short}</p><Link href={`/services/${s.slug}`}>Explore service <Arrow/></Link></article>)}</div> }
+export function CTA() { return <section className="cta-band"><div className="shell cta-inner"><div><Eyebrow>Speak with a compliance specialist</Eyebrow><h2>Know where your building stands.</h2><p>Tell us about your building and we’ll help define the right inspection or reporting scope.</p></div><div className="cta-actions"><Link className="button light" href="/get-a-quote">Request a quote <Arrow/></Link><a className="text-call" href={business.phoneHref}><Phone/> {business.phone}</a></div></div></section> }
+export function Breadcrumbs({ items }: { items: { label: string; href?: string }[] }) { return <nav className="breadcrumbs" aria-label="Breadcrumb">{items.map((x,i) => <span key={x.label}>{x.href ? <Link href={x.href}>{x.label}</Link> : x.label}{i < items.length-1 && <b>/</b>}</span>)}</nav> }

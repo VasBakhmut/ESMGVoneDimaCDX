@@ -1,0 +1,1 @@
+import { Eyebrow } from "@/components/sections"; export default function Page(){return <article className="content-page shell"><Eyebrow>Privacy</Eyebrow><h1>Privacy policy</h1><p className="intro">This project includes a placeholder privacy page. Replace it with the client’s approved policy before production launch.</p></article>}
